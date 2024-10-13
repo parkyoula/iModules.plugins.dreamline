@@ -1,0 +1,36 @@
+{
+    "id": "tools.moimz.imodules.plugins.dreamline",
+    "icon": "xi xi-letter",
+    "title": {
+        "ko": "드림라인 SMS"
+    },
+    "version": "4.0.0",
+    "description": {
+        "ko": "드림라인 API를 통한 SMS 발송 플러그인입니다."
+    },
+    "author": {
+        "name": "Arzz",
+        "email": "arzz@arzz.com"
+    },
+    "homepage": "https://www.imodules.io",
+    "versionChecker": "https://api.moimz.com/download/latest",
+    "dependencies": {
+        "core": "4.0.0"
+    },
+    "language": "ko",
+    "listeners": true,
+    "configs": {
+        "id_type": {
+            "type": "string",
+            "default": "MID"
+        },
+        "id": {
+            "type": "string",
+            "default": ""
+        },
+        "auth_key": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}
