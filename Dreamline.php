@@ -15,25 +15,26 @@ class Dreamline extends \Plugin
     /**
      * 드림라인 API 를 통해 SMS 를 전송한다.
      *
-     * @param string $cellphone 수신자휴대전화번호
+     * @param string $to 수신번호
      * @param string $content 전송내용
+     * @param ?string $from 발송번호
      * @return bool|string $success
      */
-    public function send(string $cellphone, string $content): bool|string
+    public function send(string $to, string $content, string $from = null): bool|string
     {
         /**
          * @var \modules\sms\Sms $mSms
          */
         $mSms = \Modules::get('sms');
-        $type = $mSms->getContentLength($cellphone) > 80 ? 'LMS' : 'SMS';
+        $type = $mSms->getContentLength($to) > 80 ? 'LMS' : 'SMS';
 
         $params = [
             'id_type' => $this->getConfigs('id_type'),
             'id' => $this->getConfigs('id'),
             'auth_key' => $this->getConfigs('auth_key'),
             'msg_type' => $type,
-            'callback_number' => $cellphone,
-            'send_id_receive_number' => '0|' . $cellphone,
+            'callback_number' => $from ?? $this->getConfigs('cellphone'),
+            'send_id_receive_number' => '0|' . $to,
             'content' => $content,
         ];
         $ch = curl_init();

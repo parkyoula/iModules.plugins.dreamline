@@ -31,6 +31,10 @@
         "auth_key": {
             "type": "string",
             "default": ""
+        },
+        "cellphone": {
+            "type": "string",
+            "default": ""
         }
     }
 }
