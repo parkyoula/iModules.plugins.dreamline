@@ -46,6 +46,11 @@ var plugins;
                                         name: 'auth_key',
                                         helpText: this.printText('admin.configs.auth_key_help'),
                                     }),
+                                    new Aui.Form.Field.Text({
+                                        label: this.printText('admin.configs.cellphone'),
+                                        name: 'cellphone',
+                                        helpText: this.printText('admin.configs.cellphone_help'),
+                                    }),
                                 ],
                             }),
                         ],
