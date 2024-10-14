@@ -27,7 +27,7 @@ class Listeners extends \modules\sms\Event
          * @var \plugins\dreamline\Dreamline $pDreamline
          */
         $pDreamline = \Plugins::get('dreamline');
-        $success = $pDreamline->send($sender->getCellphone(), $sender->getContent());
+        $success = $pDreamline->send($sender->getCellphone(), $sender->getContent(), $sender->getFrom());
 
         return $success;
     }
