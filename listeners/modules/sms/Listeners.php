@@ -12,10 +12,10 @@
 namespace plugins\dreamline\listeners\modules\sms;
 class Listeners extends \modules\sms\Event
 {
-    public static int $_priority = 1;
+    public static int $_priority = 2;
 
     /**
-     * SMS를 전송할 때 발생한다.
+     * 드림라인 SMS를 전송할 때 발생한다.
      *
      * @param \modules\sms\Sender $sender SMS를 보내고 있는 전송자 객체
      * @param int $sended_at 전송시각
