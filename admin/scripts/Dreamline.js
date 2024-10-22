@@ -6,7 +6,7 @@
  * @file /plugins/dreamline/admin/scripts/Dreamline.ts
  * @author Arzz <arzz@arzz.com>
  * @license MIT License
- * @modified 2024. 10. 13.
+ * @modified 2024. 10. 22.
  */
 var plugins;
 (function (plugins) {
@@ -24,7 +24,7 @@ var plugins;
                     return new Aui.Form.Panel({
                         items: [
                             new Aui.Form.FieldSet({
-                                title: (await this.getText('admin.configs.api')),
+                                title: await this.getText('admin.configs.api'),
                                 items: [
                                     new Aui.Form.Field.RadioGroup({
                                         label: this.printText('admin.configs.id_type'),
