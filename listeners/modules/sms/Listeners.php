@@ -7,7 +7,7 @@
  * @file /plugins/dreamline/listeners/modules/sms/Listeners.php
  * @author Arzz <arzz@arzz.com>
  * @license MIT License
- * @modified 2024. 10. 13.
+ * @modified 2024. 10. 28.
  */
 namespace plugins\dreamline\listeners\modules\sms;
 class Listeners extends \modules\sms\Event
@@ -27,8 +27,20 @@ class Listeners extends \modules\sms\Event
          * @var \plugins\dreamline\Dreamline $pDreamline
          */
         $pDreamline = \Plugins::get('dreamline');
-        $success = $pDreamline->send($sender->getCellphone(), $sender->getContent(), $sender->getFrom());
+        if (
+            $sender
+                ->getTo()
+                ->getCountry()
+                ?->getCode() == 'KR'
+        ) {
+            $success = $pDreamline->send(
+                $sender->getTo()->getCellphone(),
+                $sender->getContent(),
+                $sender->getFrom()->getCellphone()
+            );
+            return $success;
+        }
 
-        return $success;
+        return null;
     }
 }

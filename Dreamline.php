@@ -7,7 +7,7 @@
  * @file /plugins/dreamline/Dreamline.php
  * @author Arzz <arzz@arzz.com>
  * @license MIT License
- * @modified 2024. 10. 13.
+ * @modified 2024. 10. 28.
  */
 namespace plugins\dreamline;
 class Dreamline extends \Plugin
@@ -20,7 +20,7 @@ class Dreamline extends \Plugin
      * @param ?string $from 발송번호
      * @return bool|string $success
      */
-    public function send(string $to, string $content, string $from = null): bool|string
+    public function send(string $to, string $content, ?string $from = null): bool|string
     {
         /**
          * @var \modules\sms\Sms $mSms
