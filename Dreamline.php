@@ -20,7 +20,7 @@ class Dreamline extends \Plugin
      * @param ?string $from 발송번호
      * @return bool|string $success
      */
-    public function send(string $to, string $content, string $from = null): bool|string
+    public function send(string $to, string $content, ?string $from = null): bool|string
     {
         /**
          * @var \modules\sms\Sms $mSms
@@ -122,7 +122,7 @@ class Dreamline extends \Plugin
                 case '13022':
                     return '메시지를 발송할 수 없는 시간입니다. (발송 가능 시간: 08시~20시)';
                 default:
-                    return '[ERROR] 기타 오류 : ' . $results;
+                    return '[ERROR] ' . $results;
             }
         }
     }
